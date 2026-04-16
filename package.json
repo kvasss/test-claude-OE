@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "next": "^16.2.3",
-    "oneentry": "^1.0.147",
+    "oneentry": "^1.0.148",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

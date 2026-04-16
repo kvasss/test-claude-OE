@@ -32,7 +32,8 @@
       "Bash(sort:*)",
       "Bash(uniq:*)",
       "mcp__oneentry__get-rule",
-      "mcp__oneentry__get-skill"
+      "mcp__oneentry__get-skill",
+      "Bash(npm view *)"
     ]
   }
 }
