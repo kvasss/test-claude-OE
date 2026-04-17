@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import type { IProductsEntity } from 'oneentry/dist/products/productsInterfaces';
 import type { IAttributeValues } from 'oneentry/dist/base/utils';
 import { AddToCartButton } from '@/components/cart/AddToCartButton';
@@ -55,14 +56,14 @@ export function ProductCard({ product }: Props) {
 
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:shadow-md">
-      <div className="relative aspect-square bg-gray-50">
+      <Link href={`/products/${product.id}`} className="relative block aspect-square bg-gray-50">
         {imageUrl ? (
           <Image
             src={imageUrl}
             alt={title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className="object-contain p-4"
+            className="object-contain p-4 transition hover:scale-105"
           />
         ) : (
           <div className="flex h-full items-center justify-center text-sm text-gray-400">
@@ -79,10 +80,12 @@ export function ProductCard({ product }: Props) {
             Нет в наличии
           </span>
         )}
-      </div>
+      </Link>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
-        <h3 className="text-base font-medium text-gray-900 line-clamp-2">{title}</h3>
+        <Link href={`/products/${product.id}`} className="text-base font-medium text-gray-900 line-clamp-2 hover:text-indigo-600">
+          {title}
+        </Link>
 
         <div className="flex items-center gap-3 text-sm text-gray-500">
           {color && (

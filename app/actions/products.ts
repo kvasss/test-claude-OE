@@ -48,6 +48,30 @@ function buildQuery(offset: number, limit: number): IProductsQuery {
   return { offset, limit, sortOrder: 'ASC', sortKey: 'position' };
 }
 
+export async function getProductById(id: number, locale?: string) {
+  const result = await getApi().Products.getProductById(id, locale);
+  if (isError(result)) {
+    return { error: result.message, statusCode: result.statusCode };
+  }
+  return { item: result as IProductsEntity };
+}
+
+export async function getRelatedProducts(id: number, limit = 4, locale?: string) {
+  const result = await getApi().Products.getRelatedProductsById(id, locale, {
+    offset: 0,
+    limit,
+    sortOrder: 'ASC',
+    sortKey: 'position',
+  });
+  if (isError(result)) {
+    return { items: [] as IProductsEntity[], total: 0 };
+  }
+  return {
+    items: (result.items || []) as IProductsEntity[],
+    total: Number(result.total ?? 0),
+  };
+}
+
 export async function getProducts(
   offset = 0,
   limit = 12,
