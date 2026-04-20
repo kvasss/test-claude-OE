@@ -7,11 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "tsc": "npx tsc --noEmit --watch false",
     "lint": "next lint"
   },
   "private": true,
   "dependencies": {
-    "next": "^16.2.3",
+    "next": "^16.2.4",
     "oneentry": "^1.0.148",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
@@ -24,8 +25,8 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.5.0",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.3",
-    "postcss": "^8.5.9",
+    "eslint-config-next": "^16.2.4",
+    "postcss": "^8.5.10",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   }
